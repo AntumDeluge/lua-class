@@ -51,3 +51,5 @@ Git Repo Mirrors:
 ## TODO
 
 - Option to make function properties private.
+- Mixin support.
+- Rockspec configuration.
