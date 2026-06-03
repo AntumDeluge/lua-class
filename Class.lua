@@ -25,10 +25,6 @@ local ClassMeta = {
 		local instance = setmetatable({}, class)
 		class.__init(instance, ...)
 		return instance
-	end,
-
-	__tostring = function(self)
-		return "foobar"
 	end
 }
 
