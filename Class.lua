@@ -83,3 +83,20 @@ Class = NewClass({
 		return self.__type..": "..string.format("%p", self)
 	end
 })
+
+
+local super_type = type
+--- Wrapper for `type` function to support classes.
+--
+--  @param obj
+--    Object being examined.
+type = function(obj)
+	local t = super_type(obj)
+	if t == "table" then
+		local meta_t = getmetatable(obj)
+		if meta_t and meta_t.__type then
+			t = meta_t.__type
+		end
+	end
+	return t
+end
