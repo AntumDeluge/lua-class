@@ -23,6 +23,18 @@ Parameter descriptions:
 - `template`: Table template of new class.
 - `parent`: The parent class that is being inherited.
 
+Construction calls the `template.__init` function property. If the template table does not have the
+function, a default with only the `self` parameter will be added.
+
+```
+-- example of creating a class with a custom constructor
+local MyClass = NewClass({
+  __init = function(self, name)
+    self.name = name
+  end
+})
+```
+
 See [example](example.lua).
 
 ## Licensing
