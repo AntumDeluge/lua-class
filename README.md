@@ -1,0 +1,37 @@
+
+# Lua Classes (OOP)
+
+## Description
+
+Lua library that provides method for creating class-like tables that can be instantiated.
+
+## Notes
+
+Code is AI assisted. AI was used for reference &amp; code checking.
+
+## Usage
+
+A single function, `NewClass`, is provided &amp; can be called with the following parameters:
+
+- `NewClass()`: Creates a bare-minimum new class without inheritence.
+- `NewClass(template)`: Creates a new class from `template` without inheritence.
+- `NewClass(parent, template)`: Creates a new class from `template` with inheritence from `parent`.
+   Same as `NewClass(nil, template)`.
+
+Parameter descriptions:
+
+- `template`: Table template of new class.
+- `parent`: The parent class that is being inherited.
+
+See [example](example.lua).
+
+## Licensing
+
+- [MIT](LICENSE.txt)
+
+## Links
+
+Git Repo Mirrors:
+- [Codeberg](https://codeberg.org/AntumDeluge/lua-class)
+- [GitHub](https://github.com/AntumDeluge/lua-class)
+- [GitLab](https://gitlab.com/AntumDeluge/lua-class)
