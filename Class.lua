@@ -54,7 +54,7 @@ NewClass = function(parent, template)
 		parent = nil
 	end
 
-	local class = template or {}
+	local class = template or Class or {}
 	class.__index = class
 
 	if parent ~= nil then
@@ -71,3 +71,15 @@ NewClass = function(parent, template)
 
 	return class
 end
+
+
+--- Base class for all new classes to inherit.
+Class = NewClass({
+	--- Data type property to differentiate between "table".
+	__type = "class",
+
+	--- Overrides `table.__tostring` function to customize output for `class`.
+	__tostring = function(self)
+		return self.__type..": "..string.format("%p", self)
+	end
+})
