@@ -47,3 +47,7 @@ Git Repo Mirrors:
 - [Codeberg](https://codeberg.org/AntumDeluge/lua-class)
 - [GitHub](https://github.com/AntumDeluge/lua-class)
 - [GitLab](https://gitlab.com/AntumDeluge/lua-class)
+
+## TODO
+
+- Option to make function properties private.
