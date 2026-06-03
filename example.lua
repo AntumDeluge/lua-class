@@ -2,8 +2,9 @@
 
 
 local root = arg[0]:match("(.*[/\\])"):gsub("/*$", "") or "."
+package.path = package.path..";"..root.."/?.lua"
 
-dofile(root.."/Class.lua")
+require("Class")
 
 
 ClassA = NewClass({
