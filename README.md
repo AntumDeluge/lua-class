@@ -14,9 +14,9 @@ Code is AI assisted. AI was used for reference &amp; code checking.
 A single function, `NewClass`, is provided &amp; can be called with the following parameters:
 
 - `NewClass()`: Creates a bare-minimum new class without inheritence.
-- `NewClass(template)`: Creates a new class from `template` without inheritence.
+- `NewClass(template)`: Creates a new class from `template` without inheritence. Same as
+  `NewClass(nil, template)`.
 - `NewClass(parent, template)`: Creates a new class from `template` with inheritence from `parent`.
-   Same as `NewClass(nil, template)`.
 
 Parameter descriptions:
 
