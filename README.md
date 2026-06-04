@@ -52,3 +52,4 @@ Git Repo Mirrors:
 
 - Option to make function properties private.
 - Mixin support.
+- Support calling super-class functions.
