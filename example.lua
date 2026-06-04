@@ -1,10 +1,11 @@
 #!/usr/bin/env lua
 
 
+-- use script directory if not installed as Lua rock
 local root = arg[0]:match("(.*[/\\])"):gsub("/*$", "") or "."
 package.path = package.path..";"..root.."/?.lua"
 
-require("Class")
+require("lua-class")
 
 
 ClassA = NewClass({
