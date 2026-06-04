@@ -74,7 +74,7 @@ def writeRockspec():
 
 
 if __name__ == "__main__":
-	root = os.path.dirname(__file__)
-	os.chdir(root)
+	os.chdir(os.path.dirname(__file__))
+	root = os.getcwd()
 
 	writeRockspec()
