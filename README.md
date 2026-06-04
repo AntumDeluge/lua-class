@@ -52,4 +52,3 @@ Git Repo Mirrors:
 
 - Option to make function properties private.
 - Mixin support.
-- Rockspec configuration.

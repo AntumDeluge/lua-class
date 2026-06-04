@@ -12,28 +12,37 @@
 import errno
 import os
 import sys
-from datetime import date
+from datetime import datetime
 
 
 def getVersion():
-	return str(date.today()).replace("-", ".")
+	tag = datetime.now().strftime("%Y-%m-%d")
+	return tag.replace("-", ".")+"-1", tag
 
 
-def getContents(package, version):
-	# WIP:
+def getContents(package, version, tag):
 	lines = [
-		f"package = \"{package}\"",
-		f"version = \"{version}\"",
-		"\nsource = {",
-		f"\turl = \"git://codeberg.org/AntumDeluge/{package}.git\",",
-		f"\ttag = \"{version}\"",
-		"}",
-		"\ndescription = {",
-		"}",
-		"\ndependencies = {",
-		"}",
-		"\nbuild = {",
-		"}"
+		f'package = "{package}"',
+		f'version = "{version}"',
+		'\nsource = {',
+		f'\turl = "git://codeberg.org/AntumDeluge/{package}.git",',
+		f'\ttag = "{tag}"',
+		'}',
+		'\ndescription = {',
+		'\tsummary = "Lua library that provides method for creating class-like tables that can be instantiated.",',
+		'\tdetailed = [[]],',
+		'\tlicense = "MIT",',
+		'\thomepage = "https://codeberg.org/AntumDeluge/lua-class",',
+		'\tmaintainer = "antumdeluge@gmail.com"',
+		'}',
+		'\ndependencies = {',
+		'}',
+		'\nbuild = {',
+		'\ttype = "builtin",',
+		'\tmodules = {',
+		'\t\t["lua-class.init"] = "lua-class.lua"',
+		'\t}',
+		'}\n'
 	]
 
 	return "\n".join(lines)
@@ -44,8 +53,8 @@ def writeRockspec():
 		sys.stderr.write("\nERROR: invalid invocation, cannot determine root directory\n")
 		sys.exit(1)
 
-	version = getVersion()
-	contents = getContents("lua-class", version)
+	version, tag = getVersion()
+	contents = getContents("lua-class", version, tag)
 	rockspec = os.path.join(root, f"lua-class-{version}.rockspec")
 
 	if os.path.exists(rockspec):
@@ -62,6 +71,7 @@ def writeRockspec():
 
 	if os.path.isfile(rockspec):
 		print(f"\nrockspec file created: {rockspec}")
+
 
 if __name__ == "__main__":
 	root = os.path.dirname(__file__)
